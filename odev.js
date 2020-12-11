@@ -83,19 +83,23 @@ console.log(isValidName("X") === false);
   Ornek: katilimSaati("5", "30") 150 sonucunu vermelidir.
 */
 const katilimSaati = (dersSayisi, dersSuresi) => {
-  if (dersSayisi.length == 0 || dersSuresi.length == 0) {
-    return false;
-  }
-
-  if (typeof +dersSayisi == "boolean" || typeof +dersSuresi == "boolean") {
-    return false;
-  }
-
-  if (typeof +dersSayisi !== "number" || typeof +dersSuresi !== "number") {
+  if (typeof dersSayisi == "boolean" || typeof dersSuresi == "boolean") {
     return false;
   }
 
   if (!isFinite(+dersSuresi) || !isFinite(+dersSayisi)) {
+    return false;
+  }
+
+  if (dersSuresi == null || dersSayisi == null) {
+    return false;
+  }
+
+  if (dersSayisi.length == 0 || dersSuresi.length == 0) {
+    return false;
+  }
+
+  if (typeof +dersSayisi !== "number" || typeof +dersSuresi !== "number") {
     return false;
   }
 
